@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>formul.bmp</file>
+        <file>image2.png</file>
     </qresource>
 </RCC>
