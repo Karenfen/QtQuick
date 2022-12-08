@@ -1,68 +1,147 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.5
+import QtQuick.Window 2.12
+import QtQuick.Controls 2.12
+import com.Calculate 1.0
 
 
-
-ApplicationWindow {
-    id: window
-    width: 640
-    height: 480
+Window {
+    id: root
+    width: 400
+    height: 800
     visible: true
-    title: qsTr("Stack")
+    title: qsTr("Hello World")
 
-    header: ToolBar {
-        contentHeight: toolButton.implicitHeight
+    Calculate{
+        id: calc
+    }
 
-        ToolButton {
-            id: toolButton
-            text: stackView.depth > 1 ? "\u25C0" : "\u2630"
-            font.pixelSize: Qt.application.font.pixelSize * 1.6
-            onClicked: {
-                if (stackView.depth > 1) {
-                    stackView.pop()
-                } else {
-                    drawer.open()
-                }
-            }
+    Page {
+        id: task1
+        width: 400
+        height: 400
+
+        function calculate(){
+            textResult.text = calc.heronArea(spinBoxA.value, spinBoxB.value, spinBoxC.value)
+        }
+
+        Image {
+            id: image
+            x: 9
+            y: 0
+            width: 581
+            height: 100
+            source: "formul.bmp"
+            fillMode: Image.PreserveAspectFit
         }
 
         Label {
-            text: stackView.currentItem.title
-            anchors.centerIn: parent
+            id: labelA
+            x: 9
+            y: 106
+            width: 80
+            height: 30
+            text: "a"
+            font.pixelSize: 14
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+
+        Label {
+            id: labelB
+            x: 9
+            y: 143
+            width: 80
+            height: 31
+            text: qsTr("b")
+            font.pixelSize: 14
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+
+        Label {
+            id: labelC
+            x: 9
+            y: 180
+            width: 80
+            height: 29
+            text: qsTr("c")
+            font.pixelSize: 14
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+
+        SpinBox {
+            id: spinBoxA
+            x: 95
+            y: 106
+            wrap: true
+            editable: true
+            to: 1000
+            stepSize: 1
+        }
+
+        SpinBox {
+            id: spinBoxB
+            x: 95
+            y: 143
+            wrap: true
+            editable: true
+            stepSize: 1
+            to: 1000
+        }
+
+        SpinBox {
+            id: spinBoxC
+            x: 95
+            y: 179
+            wrap: true
+            editable: true
+            to: 1000
+            stepSize: 1
+        }
+
+        Button {
+            id: buttonCalculate
+            x: 9
+            y: 215
+            width: 206
+            height: 32
+            text: qsTr("рассчитать")
+            font.pointSize: 10
+            spacing: 6
+            onClicked: task1.calculate()
+        }
+
+        TextInput {
+            id: textInput3
+            x: 9
+            y: 253
+            width: 80
+            height: 30
+            text: qsTr("S")
+            font.pixelSize: 12
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            readOnly: true
+        }
+
+        Text {
+            id: textResult
+            x: 95
+            y: 253
+            width: 120
+            height: 30
+            text: qsTr("результат")
+            font.pixelSize: 12
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.capitalization: Font.MixedCase
+            style: Text.Normal
         }
     }
 
-    Drawer {
-        id: drawer
-        width: window.width * 0.66
-        height: window.height
-
-        Column {
-            anchors.fill: parent
-
-            ItemDelegate {
-                text: qsTr("Page 1")
-                width: parent.width
-                onClicked: {
-                    stackView.push("Page1Form.ui.qml")
-                    drawer.close()
-                }
-            }
-            ItemDelegate {
-                text: qsTr("Page 2")
-                width: parent.width
-                onClicked: {
-                    stackView.push("Page2Form.ui.qml")
-                    drawer.close()
-                }
-            }
-        }
-    }
-
-    StackView {
-        id: stackView
-        initialItem: "HomeForm.ui.qml"
-        anchors.fill: parent
+    Page{
+        id:task2
     }
 
     Rectangle{
@@ -191,5 +270,4 @@ ApplicationWindow {
             }
         }
     }
-
 }
