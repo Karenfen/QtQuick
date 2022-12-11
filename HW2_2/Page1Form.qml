@@ -8,6 +8,7 @@ Page {
         anchors.fill: parent
         color: "#f7f1df"
     }
+
     header: Label {
         text: qsTr("Task 1")
         font.pixelSize: Qt.application.font.pixelSize * 2

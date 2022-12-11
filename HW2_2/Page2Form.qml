@@ -11,8 +11,10 @@ Page {
         padding: 10
     }
 
-    Label {
-        text: qsTr("You are on Task 2.")
-        anchors.centerIn: parent
+    Square{
+        size: 100
+        color: "red"
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 }
