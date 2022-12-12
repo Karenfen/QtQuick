@@ -14,10 +14,9 @@ Rectangle {
         animColor.start()
     }
 
-    PropertyAnimation {
+
+    ColorAnimation on color{
         id: animColor
-        target: square
-        property: "color"
         to: newColor
         duration: 500
     }
@@ -31,10 +30,21 @@ Rectangle {
         easing.type: Easing.InCubic
     }
 
+    RotationAnimation {
+        id: rotate
+        target: square
+        duration: 2000
+        direction: RotationAnimation.Clockwise
+        from: 0
+        to: 360
+        easing.type: Easing.OutElastic
+    }
+
     MouseArea{
         anchors.fill: parent
-        acceptedButtons: Qt.LeftButton
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
         onClicked: if(mouse.button === Qt.LeftButton) changeColor()
+                    else if(mouse.button === Qt.RightButton) rotate.start()
         onDoubleClicked: if(mouse.button === Qt.LeftButton) changeGeometry.start()
     }
 }
