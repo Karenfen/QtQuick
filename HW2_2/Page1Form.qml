@@ -22,7 +22,6 @@ Page {
 
     SignupForm{
         id: signupWin
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
     }
 }

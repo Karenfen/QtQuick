@@ -60,8 +60,7 @@ Rectangle{
         color: "#d5e6e6"
         radius: 15
         antialiasing: true
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
 
         ScrollView{
             anchors.fill: parent

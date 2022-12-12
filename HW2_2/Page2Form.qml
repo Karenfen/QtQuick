@@ -13,7 +13,6 @@ Page {
 
     Square{
         size: 200
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
     }
 }
