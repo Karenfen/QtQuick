@@ -14,6 +14,15 @@ Rectangle {
         animColor.start()
     }
 
+    function changeGeometry(){
+        animGeometry.stop()
+        animGeometry.start()
+    }
+
+    function rotate(){
+        animRotate.stop()
+        animRotate.start()
+    }
 
     ColorAnimation on color{
         id: animColor
@@ -22,7 +31,7 @@ Rectangle {
     }
 
     PropertyAnimation {
-        id: changeGeometry
+        id: animGeometry
         target: square
         property: "radius"
         to: radius == 0 ? width/2 : 0
@@ -31,7 +40,7 @@ Rectangle {
     }
 
     RotationAnimation {
-        id: rotate
+        id: animRotate
         target: square
         duration: 2000
         direction: RotationAnimation.Clockwise
@@ -44,7 +53,7 @@ Rectangle {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         onClicked: if(mouse.button === Qt.LeftButton) changeColor()
-                    else if(mouse.button === Qt.RightButton) rotate.start()
-        onDoubleClicked: if(mouse.button === Qt.LeftButton) changeGeometry.start()
+                    else if(mouse.button === Qt.RightButton) rotate()
+        onDoubleClicked: if(mouse.button === Qt.LeftButton) changeGeometry()
     }
 }

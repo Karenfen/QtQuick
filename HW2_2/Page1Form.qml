@@ -6,7 +6,7 @@ Page {
     height: 400
     background: Rectangle{
         anchors.fill: parent
-        color: "#f7f1df"
+        color: "#f7f5eb"
     }
 
     header: Label {
@@ -22,6 +22,7 @@ Page {
 
     SignupForm{
         id: signupWin
-        anchors.fill: parent
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 }

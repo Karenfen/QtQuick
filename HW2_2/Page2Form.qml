@@ -12,8 +12,7 @@ Page {
     }
 
     Square{
-        size: 100
-        color: "red"
+        size: 200
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
     }

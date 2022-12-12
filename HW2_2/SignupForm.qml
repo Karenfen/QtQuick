@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.3
 Rectangle{
     id: border
     width: 480
-    height: 480
+    height: 640
     color: "#d5e6e6"
     radius: 15
     antialiasing: true
@@ -13,6 +13,7 @@ Rectangle{
     border.width: 2
     property string allInfo: ""
     signal finish()
+
     SequentialAnimation{
         id: closeAnimation
 
@@ -41,7 +42,7 @@ Rectangle{
               + "\n Образование: " + education.currentText
               + "\n Хобби: " + hobby.text
               + "\n О себе: " + aboutMe.text
-              + "\n ПОЖЕЛАНИЯ"
+              + "\nПОЖЕЛАНИЯ"
               + "\n Пол: "
         if(maleTo.checked) allInfo += qsTr("Муж")
         if(femaleTo.checked) allInfo += qsTr("Жен")
@@ -49,7 +50,7 @@ Rectangle{
         allInfo += "\n Возвраст: от " + ageTo.first.value.toFixed().toString()
                 + " до " + ageTo.second.value.toFixed().toString()
                 + "\n Город: " + cityTo.text.toString()
-        print(allInfo)
+        //print(allInfo)
     }
 
     Rectangle {
@@ -248,12 +249,23 @@ Rectangle{
                     text: qsTr("Подтвердить")
                     delay: 600
                     font.pixelSize: 20
+
                     background: Rectangle{
-                        anchors.fill: parent
                         radius: 15
-                        color: "#80d18a"
                         opacity: 0.5
+                        anchors.fill: parent
+                        color: acceptButton.down ? "#17a81a" : "#80d18a"
+
+                        ProgressBar{
+                            anchors.bottom: parent.bottom
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            width: parent.width - parent.radius*2
+                            from: 0
+                            to: 1
+                            value: acceptButton.progress
+                        }
                     }
+
                     onActivated: [sendData(), closeAnimation.start(), finish(allInfo)]
                 }
             }
