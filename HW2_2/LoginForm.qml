@@ -10,8 +10,8 @@ Rectangle{
     height: 300
     property bool register: false
     property string textColor: "#535353"
-    property string login: "l"
-    property string password: "p"
+    property string login: "login"
+    property string password: "password"
     property string loginStateName: "login"
     property string signupStateName: "signup"
     state: loginStateName

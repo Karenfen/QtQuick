@@ -5,6 +5,8 @@ ApplicationWindow {
     id: main
     width: 600
     height: 800
+    minimumHeight: 400
+    minimumWidth: 400
     visible: true
     title: qsTr("Home work 2.2")
 
@@ -148,6 +150,10 @@ ApplicationWindow {
 
         Page2Form {
         }
+
+        Page3Form{
+
+        }
     }
 
     footer: TabBar {
@@ -155,10 +161,13 @@ ApplicationWindow {
         currentIndex: swipeView.currentIndex
 
         TabButton {
-            text: qsTr("Task 1")
+            text: qsTr("Главная страница")
         }
         TabButton {
-            text: qsTr("Task 2")
+            text: qsTr("Бешеный квадрат")
+        }
+        TabButton {
+            text: qsTr("Библиотека")
         }
     }
 

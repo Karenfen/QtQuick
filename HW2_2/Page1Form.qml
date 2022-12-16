@@ -11,7 +11,7 @@ Page {
     }
 
     header: Label {
-        text: qsTr("Task 1")
+        text: qsTr("Мой профиль")
         font.pixelSize: Qt.application.font.pixelSize * 2
         padding: 10
     }
