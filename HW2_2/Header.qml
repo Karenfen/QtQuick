@@ -26,7 +26,7 @@ Rectangle {
             }
 
             PauseAnimation {
-                duration: 5000
+                duration: 2000
             }
 
             PropertyAnimation {

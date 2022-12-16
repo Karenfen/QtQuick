@@ -10,8 +10,8 @@ Rectangle{
     height: 300
     property bool register: false
     property string textColor: "#535353"
-    property string login: "login"
-    property string password: "password"
+    property string login: "l"
+    property string password: "p"
     property string loginStateName: "login"
     property string signupStateName: "signup"
     state: loginStateName
@@ -53,6 +53,85 @@ Rectangle{
             PropertyChanges {
                 target: submitButton
                 text: qsTr("Регистрация")
+            }
+        }
+    ]
+
+    transitions: [
+        Transition {
+            from: loginStateName
+            to: signupStateName
+            SequentialAnimation {
+                PropertyAction {
+                    target: repeatPasswordTextField
+                    property: "scale"
+                    value: 0
+                }
+
+
+                PropertyAction {
+                    target: repeatPasswordTextField
+                    property: "visible"
+                    value: true
+                }
+
+                PropertyAnimation {
+                    target: root
+                    property: "height"
+                    duration: 200
+                }
+
+                ParallelAnimation {
+                    PropertyAnimation {
+                        target: repeatPasswordTextField
+                        property: "opacity"
+                        from: 0
+                        to: 1
+                        duration: 200
+                    }
+                    PropertyAnimation {
+                        target: repeatPasswordTextField
+                        property: "scale"
+                        from: 0
+                        to: 1
+                        duration: 200
+                        easing.type: Easing.OutBack
+                    }
+                }
+            }
+        },
+        Transition {
+            from: signupStateName
+            to: loginStateName
+            SequentialAnimation {
+                ParallelAnimation {
+                    PropertyAnimation {
+                        target: repeatPasswordTextField
+                        property: "opacity"
+                        from: 1
+                        to: 0
+                        duration: 200
+                    }
+                    PropertyAnimation {
+                        target: repeatPasswordTextField
+                        property: "scale"
+                        from: 1
+                        to: 0
+                        duration: 200
+                    }
+                }
+
+                PropertyAction {
+                    target: repeatPasswordTextField
+                    property: "visible"
+                    value: false
+                }
+
+                PropertyAnimation {
+                    target: root
+                    property: "height"
+                    duration: 200
+                }
             }
         }
     ]
@@ -150,14 +229,14 @@ Rectangle{
             targets: root.children
             property: "opacity"
             to: 0
-            duration: 300
+            duration: 200
         }
 
         PropertyAnimation {
             target: root
             property: "opacity"
             to: 0
-            duration: 600
+            duration: 200
         }
 
         PropertyAction {

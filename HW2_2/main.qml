@@ -17,7 +17,7 @@ ApplicationWindow {
         id: swipeView
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
-        state: defaultStateName
+        state: loginStateName
         states: [
             State {
                 name: loginStateName
@@ -89,6 +89,57 @@ ApplicationWindow {
             }
         ]
 
+        transitions: [
+            Transition {
+                from: loginStateName + "," + formFillingStateName
+                to: defaultStateName
+                SequentialAnimation {
+                    PropertyAction {
+                        target: searchHeader
+                        properties: "scale,opacity"
+                        value: 0
+                    }
+
+                    PropertyAction {
+                        targets: searchHeader.children
+                        property: "scale"
+                        value: 0
+                    }
+
+                    PropertyAction {
+                        target: searchHeader
+                        properties: "visible"
+                        value: true
+                    }
+
+                    PropertyAnimation {
+                        target: searchHeader
+                        properties: "scale,opacity"
+                        to: 1
+                        duration: 200
+                    }
+
+                    PropertyAnimation {
+                        targets: searchHeader.children
+                        property: "scale"
+                        to: 1
+                        duration: 200
+                        easing.type: Easing.OutBack
+                    }
+                }
+            },
+            Transition {
+                from: loginStateName
+                to: formFillingStateName
+                PropertyAnimation {
+                    target: formWin
+                    properties: "opacity,scale"
+                    from: 0
+                    to: 1
+                    duration: 500
+                }
+            }
+        ]
 
         Page1Form {
             id: page1
