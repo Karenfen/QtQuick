@@ -4,6 +4,7 @@ import QtQuick.Controls 2.5
 Page {
     width: 600
     height: 400
+    property string info: "info"
     background: Rectangle{
         anchors.fill: parent
         color: "#f7f5eb"
@@ -16,12 +17,7 @@ Page {
     }
 
     Label {
-        text: signupWin.allInfo
-        anchors.centerIn: parent
-    }
-
-    SignupForm{
-        id: signupWin
+        text: info
         anchors.centerIn: parent
     }
 }

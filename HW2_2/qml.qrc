@@ -4,7 +4,9 @@
         <file>qtquickcontrols2.conf</file>
         <file>Page1Form.qml</file>
         <file>Page2Form.qml</file>
-        <file>SignupForm.qml</file>
         <file>Square.qml</file>
+        <file>LoginForm.qml</file>
+        <file>Questionary.qml</file>
+        <file>Header.qml</file>
     </qresource>
 </RCC>

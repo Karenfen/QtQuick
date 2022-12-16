@@ -11,8 +11,8 @@ Rectangle{
     antialiasing: true
     border.color: "#99b0b0"
     border.width: 2
-    property string allInfo: ""
-    signal finish()
+    property bool finish: false
+    property string allInfo: "info"
 
     SequentialAnimation{
         id: closeAnimation
@@ -30,6 +30,12 @@ Rectangle{
             property: "visible"
             value: false
         }
+
+        PropertyAction {
+            target: border
+            property: "finish"
+            value: true
+        }
     }
 
     function sendData(){
@@ -38,19 +44,19 @@ Rectangle{
         if (myFemale.checked) allInfo += qsTr("Жен")
         if(myGenderOther.checked) allInfo += qsTr("Другой")
         allInfo += "\n Возраст: " + myAge.value.toString()
-              + "\n Город: " + city.text
-              + "\n Образование: " + education.currentText
-              + "\n Хобби: " + hobby.text
-              + "\n О себе: " + aboutMe.text
-              + "\nПОЖЕЛАНИЯ"
-              + "\n Пол: "
+          + "\n Город: " + city.text
+          + "\n Образование: " + education.currentText
+          + "\n Хобби: " + hobby.text
+          + "\n О себе: " + aboutMe.text
+          + "\nПОЖЕЛАНИЯ"
+          + "\n Пол: "
         if(maleTo.checked) allInfo += qsTr("Муж")
         if(femaleTo.checked) allInfo += qsTr("Жен")
         if(anyGenderTo.checked) allInfo += qsTr("любой")
         allInfo += "\n Возвраст: от " + ageTo.first.value.toFixed().toString()
-                + " до " + ageTo.second.value.toFixed().toString()
-                + "\n Город: " + cityTo.text.toString()
-        //print(allInfo)
+            + " до " + ageTo.second.value.toFixed().toString()
+            + "\n Город: " + cityTo.text.toString()
+
     }
 
     Rectangle {
@@ -134,7 +140,7 @@ Rectangle{
                             border.width: 2
                             anchors.fill: parent
                             antialiasing: true
-                            }
+                        }
                     }
 
 
@@ -234,7 +240,7 @@ Rectangle{
                             border.width: 2
                             anchors.fill: parent
                             antialiasing: true
-                            }
+                        }
                     }
 
                 }
@@ -265,7 +271,7 @@ Rectangle{
                         }
                     }
 
-                    onActivated: [sendData(), closeAnimation.start(), finish(allInfo)]
+                    onActivated: [sendData(), closeAnimation.start()]
                 }
             }
         }
