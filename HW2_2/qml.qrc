@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Page1Form.qml</file>
+        <file>Page2Form.qml</file>
+        <file>Square.qml</file>
+        <file>LoginForm.qml</file>
+        <file>Questionary.qml</file>
+        <file>Header.qml</file>
+        <file>Page3Form.qml</file>
+        <file>covers/cover1.jpg</file>
+        <file>covers/cover2.jpg</file>
+        <file>covers/cover3.jpg</file>
+        <file>covers/cover4.jpg</file>
+    </qresource>
+</RCC>
