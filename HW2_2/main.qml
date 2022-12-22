@@ -19,7 +19,7 @@ ApplicationWindow {
         id: swipeView
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
-        state: loginStateName
+        state: defaultStateName
         states: [
             State {
                 name: loginStateName
@@ -154,6 +154,10 @@ ApplicationWindow {
         Page3Form{
 
         }
+
+        Page4Form {
+
+        }
     }
 
     footer: TabBar {
@@ -168,6 +172,9 @@ ApplicationWindow {
         }
         TabButton {
             text: qsTr("Библиотека")
+        }
+        TabButton {
+            text: qsTr("График")
         }
     }
 
@@ -185,6 +192,6 @@ ApplicationWindow {
     LoginForm{
         id: logWin
         anchors.centerIn: parent
-        visible: true
+        visible: false
     }
 }

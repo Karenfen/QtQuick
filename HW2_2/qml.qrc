@@ -13,5 +13,6 @@
         <file>covers/cover2.jpg</file>
         <file>covers/cover3.jpg</file>
         <file>covers/cover4.jpg</file>
+        <file>Page4Form.qml</file>
     </qresource>
 </RCC>
