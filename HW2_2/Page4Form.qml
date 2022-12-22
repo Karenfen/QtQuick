@@ -14,8 +14,21 @@ Page {
         title: qsTr("Зависимость Y от X")
         antialiasing: true
 
+        ValueAxis {
+            id: axisX
+            min: 0
+            max: 5
+        }
+
+        ValueAxis {
+            id: axisY
+            min: -5
+            max: 25
+        }
         LineSeries {
             id: seriesLine
+            axisX: axisX
+            axisY: axisY
             Component.onCompleted: {
                 chartParam.type = 0
                 seriesLine.name = chartParam.label
@@ -26,6 +39,8 @@ Page {
         }
         LineSeries {
             id: seriesAbs
+            axisX: axisX
+            axisY: axisY
             Component.onCompleted: {
                 chartParam.type = 1
                 seriesAbs.name  = chartParam.label
@@ -36,6 +51,8 @@ Page {
         }
         LineSeries {
             id: seriesQuad
+            axisX: axisX
+            axisY: axisY
             Component.onCompleted: {
                 chartParam.type = 2
                 seriesQuad.name  = chartParam.label
@@ -46,9 +63,11 @@ Page {
         }
         LineSeries {
             id: seriesLog
+            axisX: axisX
+            axisY: axisY
             Component.onCompleted: {
                 chartParam.type = 3
-                seriesQuad.name =  chartParam.label
+                seriesLog.name =  chartParam.label
                 for(var index = 0; index < chartParam.size; ++index){
                     seriesLog.append(chartParam.Xvalues[index], chartParam.Yvalues[index])
                 }
@@ -56,6 +75,8 @@ Page {
         }
         LineSeries {
             id: seriesSin
+            axisX: axisX
+            axisY: axisY
             Component.onCompleted: {
                 chartParam.type = 4
                 seriesSin.name =  chartParam.label
