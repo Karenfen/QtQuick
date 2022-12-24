@@ -3,14 +3,14 @@ import QtQuick.Controls 2.5
 import "MyScrypt.js" as MyScript
 
 Page {
-    width: 400
-    height: 400
+    anchors.fill: parent
 
     header: ComboBox {
         id: figureSelection
         textRole: "text"
         valueRole: "value"
         font.pointSize: 14
+
         model: [
             { value: "star", text: qsTr("Звезда") },
             { value: "ring", text: qsTr("Кольцо") },

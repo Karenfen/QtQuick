@@ -1,3 +1,4 @@
+
 function getFigure(width, height, figure) {
     var Xcenter = width / 2
     var Ycenter = height /2
