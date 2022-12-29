@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>ResultInfoWin.qml</file>
+        <file>Task1Page.qml</file>
+        <file>Task2Page.qml</file>
     </qresource>
 </RCC>
